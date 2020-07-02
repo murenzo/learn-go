@@ -14,6 +14,9 @@ func main() {
 
 	x = append(x, y...)
 
+	// Deleting from a slice
+	x = append(x[:5], x[7:]...)
+
 	fmt.Println(x)
 
 
