@@ -3,22 +3,21 @@ package main
 import "fmt"
 
 func main() {
-	a := incrementor()
-	b := incrementor()
-
-	fmt.Println(a())
-	fmt.Println(a())
-	fmt.Println(a())
-	fmt.Println(a())
-	fmt.Println(b())
-	fmt.Println(b())
+	fac := loopFact(4)
+	fmt.Println(fac)
 }
 
-func incrementor() func()int {
-	var x int
-	return func()int {
-		x++
-		return x
+func factorial(n int) int {
+	if n == 0 {
+		return 1
 	}
+	return n * factorial(n-1)
 }
 
+func loopFact(n int) int {
+	factorialSum := 1
+	for ; n > 0; n-- {
+		factorialSum *= n
+	}
+	return factorialSum
+}
