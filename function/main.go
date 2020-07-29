@@ -12,8 +12,28 @@ type secretAgent struct {
 	ltk bool
 }
 
+type human interface {
+	speak()
+}
+
+func (p person) speak() {
+	fmt.Println("My name is", p.fname, p.lname, "says person")
+}
+
 func (s secretAgent) speak() {
-	fmt.Println("My name is", s.fname, s.lname)
+	fmt.Println("My name is", s.fname, s.lname, "says secret agent")
+}
+
+func bar(h human) {
+	switch h.(type) {
+	case person:
+		fmt.Println("Human was passed into bar", h.(person).fname)
+	case secretAgent:
+		fmt.Println("Secret Agent was passed into bar", h.(secretAgent).fname)
+	default:
+	fmt.Println("I was passed into bar", h)
+	}
+	
 }
 
 func main() {
@@ -25,6 +45,11 @@ func main() {
 		ltk: true,
 	}
 
-	fmt.Println(sa1)
-	sa1.speak()
+	p1 := person {
+		fname: "Raji-Banjoko",
+		lname: "Sabith",
+	}
+
+	bar(sa1)
+	bar(p1)
 }
