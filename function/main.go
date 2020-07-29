@@ -3,7 +3,8 @@ package main
 import "fmt"
 
 func main() {
-	foo(1,2,3,4,5,6,7,8,9)
+	xi := []int{1,2,3,4,5,6,7,8,9}
+	foo(xi...)
 }
 
 // Variadic parameters
@@ -20,20 +21,3 @@ func foo(x ...int) {
 	fmt.Println("The total sum is", sum)
 }
 
-// func foo() {
-// 	fmt.Println("Hello from foo baba")
-// }
-
-// func bar(s string) {
-// 	fmt.Println("Hello", s)
-// }
-
-// func baz(s string) string {
-// 	return fmt.Sprint("Hello from woo, ", s)
-// }
-
-// func mouse(fn string, ln string) (string, bool) {
-// 	s := fmt.Sprint(fn, " " ,ln, ` says "hello"`)
-// 	b := false
-// 	return s, b
-// }
