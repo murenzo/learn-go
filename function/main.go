@@ -3,14 +3,11 @@ package main
 import "fmt"
 
 func main() {
-	f := func() {
-		fmt.Println("Hello from function expression")
-	}
-	f()
+	func() {
+		fmt.Println("Anonymous func ran")
+	}()
 
-	g := func(x int) {
-		fmt.Println("My birth year is:", x)
-	}
-	g(1987)
-	
+	func(x int) {
+		fmt.Println("The meaning of life", x)
+	}(42)
 }
